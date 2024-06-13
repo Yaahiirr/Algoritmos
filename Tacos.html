@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Tacos Consumidos en CDMX</title>
+</head>
+<body>
+    <h1>Cálculo de Tacos Consumidos en la CDMX</h1>
+    <form id="tacosForm">
+        <label for="numPrs">Ingrese la cantidad de personas que hay en CDMX:</label><br>
+        <input type="number" id="numPrs" name="numPrs" value="9209944"><br><br>
+        
+        <label for="tc">Ingrese la cantidad promedio que una persona puede llegar a comer al día:</label><br>
+        <input type="number" id="tc" name="tc"><br><br>
+        
+        <input type="button" value="Calcular" onclick="calcularTacos()">
+    </form>
+    
+    <h2 id="resultado"></h2>
+
+    <script>
+        function calcularTacos() {
+            const numPrs = document.getElementById('numPrs').value;
+            const tc = document.getElementById('tc').value;
+            
+            if (numPrs && tc) {
+                const total = numPrs * tc;
+                document.getElementById('resultado').innerText = "El total de tacos consumidos al día en la CDMX son: " + total;
+            } else {
+                document.getElementById('resultado').innerText = "Por favor, ingrese todos los valores.";
+            }
+        }
+    </script>
+</body>
+</html>
