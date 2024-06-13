@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular área y perímetro de un decágono regular</title>
+</head>
+<body>
+    <h2>Calcular área y perímetro de un decágono regular</h2>
+    <form id="decagonoForm">
+        <label for="lado">Pon la longitud de uno de los lados:</label>
+        <input type="number" id="lado" name="lado" required><br><br>
+        <button type="button" onclick="calcular()">Calcular</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+        function calcular() {
+            var s = parseFloat(document.getElementById('lado').value);
+
+            var resultadoArea = (5/2 * Math.pow(s, 2)) * ((Math.sqrt(5) + 2) * Math.sqrt(5));
+            var resultadoPerimetro = 10 * s;
+
+            document.getElementById('resultado').innerHTML = `
+                <p>El resultado de un área es: ${resultadoArea}</p>
+                <p>El resultado de un perímetro es: ${resultadoPerimetro}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

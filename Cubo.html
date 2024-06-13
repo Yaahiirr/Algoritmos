@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular área y volumen de un cubo</title>
+</head>
+<body>
+    <h2>Calcular área y volumen de un cubo</h2>
+    <form id="cuboForm">
+        <label for="longitud">Escribir el lado de la longitud de uno de los lados del cubo:</label>
+        <input type="number" id="longitud" name="longitud" required><br><br>
+        <label for="arista">Escribir el lado de la arista de la longitud de uno de los lados del cubo:</label>
+        <input type="number" id="arista" name="arista" required><br><br>
+        <button type="button" onclick="calcular()">Calcular</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+        function calcular() {
+            var ld = parseFloat(document.getElementById('longitud').value);
+            var s = parseFloat(document.getElementById('arista').value);
+
+            var resultadoArea = 6 * Math.pow(ld, 2);
+            var resultadoPerimetro = 12 * s;
+            var resultadoVolumen = Math.pow(ld, 3);
+
+            document.getElementById('resultado').innerHTML = `
+                <p>El resultado del área es: ${resultadoArea}</p>
+                <p>El resultado del perímetro es: ${resultadoPerimetro}</p>
+                <p>El resultado del volumen es: ${resultadoVolumen}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

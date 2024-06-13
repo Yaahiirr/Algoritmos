@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular área y perímetro de un cuadrado</title>
+</head>
+<body>
+    <h2>Calcular área y perímetro de un cuadrado</h2>
+    <form id="rectanguloForm">
+        <label for="lado1">Ingresa el primer lado:</label>
+        <input type="number" id="lado1" name="lado1" required><br><br>
+        <label for="lado2">Ingresa el segundo lado:</label>
+        <input type="number" id="lado2" name="lado2" required><br><br>
+        <label for="longitud">Ingresa la longitud:</label>
+        <input type="number" id="longitud" name="longitud" required><br><br>
+        <button type="button" onclick="calcular()">Calcular</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+        function calcular() {
+            var lado1 = parseFloat(document.getElementById('lado1').value);
+            var lado2 = parseFloat(document.getElementById('lado2').value);
+            var longitud = parseFloat(document.getElementById('longitud').value);
+
+            var resultadoArea = lado1 * lado2;
+            var resultadoPerimetro = 4 * longitud;
+
+            document.getElementById('resultado').innerHTML = `
+                <p>El resultado del área es: ${resultadoArea}</p>
+                <p>El resultado del perímetro es: ${resultadoPerimetro}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

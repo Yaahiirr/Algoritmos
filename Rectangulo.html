@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular área y perímetro de un rectángulo</title>
+</head>
+<body>
+    <h2>Calcular área y perímetro de un rectángulo</h2>
+    <form id="rectanguloForm">
+        <label for="base">Pon la base:</label>
+        <input type="number" id="base" name="base" required><br><br>
+        <label for="altura">Pon la altura:</label>
+        <input type="number" id="altura" name="altura" required><br><br>
+        <label for="longitud">Pon la longitud:</label>
+        <input type="number" id="longitud" name="longitud" required><br><br>
+        <label for="ancho">Pon el ancho:</label>
+        <input type="number" id="ancho" name="ancho" required><br><br>
+        <button type="button" onclick="calcular()">Calcular</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+        function calcular() {
+            var B = parseFloat(document.getElementById('base').value);
+            var H = parseFloat(document.getElementById('altura').value);
+            var lg = parseFloat(document.getElementById('longitud').value);
+            var w = parseFloat(document.getElementById('ancho').value);
+
+            var Area = B * H;
+            var Perimetro = 2 * (lg + w);
+
+            document.getElementById('resultado').innerHTML = `
+                <p>El resultado del área es: ${Area}</p>
+                <p>El resultado del perímetro es: ${Perimetro}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

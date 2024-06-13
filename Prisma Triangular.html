@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular área, perímetro y volumen de un prisma triangular</title>
+</head>
+<body>
+    <h2>Calcular área, perímetro y volumen de un prisma triangular</h2>
+    <form id="prismaTriangularForm">
+        <label for="ladoA">Escribe el primer lado:</label>
+        <input type="number" id="ladoA" name="ladoA" required><br><br>
+        <label for="ladoB">Escribe el segundo lado:</label>
+        <input type="number" id="ladoB" name="ladoB" required><br><br>
+        <label for="ladoC">Escribe el tercer lado:</label>
+        <input type="number" id="ladoC" name="ladoC" required><br><br>
+        <label for="semiperimetro">Escribe el semiperímetro:</label>
+        <input type="number" id="semiperimetro" name="semiperimetro" required><br><br>
+        <label for="altura">Escribe la altura:</label>
+        <input type="number" id="altura" name="altura" required><br><br>
+        <button type="button" onclick="calcular()">Calcular</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+        function calcular() {
+            var a = parseFloat(document.getElementById('ladoA').value);
+            var b = parseFloat(document.getElementById('ladoB').value);
+            var c = parseFloat(document.getElementById('ladoC').value);
+            var s = parseFloat(document.getElementById('semiperimetro').value);
+            var h = parseFloat(document.getElementById('altura').value);
+
+            var AResultado = Math.sqrt(s * (s - a) * (s - b) * (s - c));
+            var BResultado = 2 * AResultado;
+            var CResultado = (a * h) + (b * h) + (c * h);
+            var Area = BResultado + CResultado;
+            var Perimetro = a + b + c;
+            var Areabase = Math.sqrt(s * (s - a) * (s - b) * (s - c));
+            var Volumen = Areabase * h;
+
+            document.getElementById('resultado').innerHTML = `
+                <p>El resultado del área es: ${Area}</p>
+                <p>El resultado del perímetro es: ${Perimetro}</p>
+                <p>El resultado del volumen es: ${Volumen}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

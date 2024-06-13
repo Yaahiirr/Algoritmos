@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular área, perímetro y volumen de una pirámide rectangular</title>
+</head>
+<body>
+    <h2>Calcular área, perímetro y volumen de una pirámide rectangular</h2>
+    <form id="piramideRectangularForm">
+        <label for="longitud">Escribe la longitud:</label>
+        <input type="number" id="longitud" name="longitud" required><br><br>
+        <label for="anchura">Escribe la anchura:</label>
+        <input type="number" id="anchura" name="anchura" required><br><br>
+        <label for="base">Escribe la base:</label>
+        <input type="number" id="base" name="base" required><br><br>
+        <label for="altura">Escribe la altura:</label>
+        <input type="number" id="altura" name="altura" required><br><br>
+        <button type="button" onclick="calcular()">Calcular</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+        function calcular() {
+            var lg = parseFloat(document.getElementById('longitud').value);
+            var an = parseFloat(document.getElementById('anchura').value);
+            var b = parseFloat(document.getElementById('base').value);
+            var h = parseFloat(document.getElementById('altura').value);
+
+            var AResultado = lg * an;
+            var BResultado = (1/2) * b * h;
+            var Area = AResultado + BResultado;
+            var Perimetro = 2 * (lg + an);
+            var Areabase = lg * an;
+            var Volumen = (1/3) * Areabase * h;
+
+            document.getElementById('resultado').innerHTML = `
+                <p>El resultado del área es: ${Area}</p>
+                <p>El resultado del perímetro es: ${Perimetro}</p>
+                <p>El resultado del volumen es: ${Volumen}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

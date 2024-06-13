@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular área, circunferencia y volumen de una esfera</title>
+</head>
+<body>
+    <h2>Calcular área, circunferencia y volumen de una esfera</h2>
+    <form id="esferaForm">
+        <label for="radio">Escribe el radio:</label>
+        <input type="number" id="radio" name="radio" required><br><br>
+        <button type="button" onclick="calcular()">Calcular</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+        function calcular() {
+            var r = parseFloat(document.getElementById('radio').value);
+
+            var resultadoArea = (4 * 3.1416) * Math.pow(r, 2);
+            var resultadoCircunferencia = 2 * 3.1416 * r;
+            var resultadoVolumen = (4/3) * 3.1416 * Math.pow(r, 3);
+
+            document.getElementById('resultado').innerHTML = `
+                <p>El resultado del área es: ${resultadoArea}</p>
+                <p>El resultado del circunferencia es: ${resultadoCircunferencia}</p>
+                <p>El resultado del volumen es: ${resultadoVolumen}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

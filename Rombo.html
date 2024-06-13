@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular área y perímetro de un rombo</title>
+</head>
+<body>
+    <h2>Calcular área y perímetro de un rombo</h2>
+    <form id="romboForm">
+        <label for="diagonal1">Pon la primera diagonal:</label>
+        <input type="number" id="diagonal1" name="diagonal1" required><br><br>
+        <label for="diagonal2">Pon la segunda diagonal:</label>
+        <input type="number" id="diagonal2" name="diagonal2" required><br><br>
+        <label for="longitud">Pon la longitud:</label>
+        <input type="number" id="longitud" name="longitud" required><br><br>
+        <button type="button" onclick="calcular()">Calcular</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+        function calcular() {
+            var D1 = parseFloat(document.getElementById('diagonal1').value);
+            var D2 = parseFloat(document.getElementById('diagonal2').value);
+            var s = parseFloat(document.getElementById('longitud').value);
+
+            var Area = (D1 * D2) / 2;
+            var Perimetro = 4 * s;
+
+            document.getElementById('resultado').innerHTML = `
+                <p>El resultado del área es: ${Area}</p>
+                <p>El resultado del perímetro es: ${Perimetro}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

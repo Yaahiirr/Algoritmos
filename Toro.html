@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular área, volumen y circunferencias de un toro</title>
+</head>
+<body>
+    <h2>Calcular área, volumen y circunferencias de un toro</h2>
+    <form id="toroForm">
+        <label for="radioMayor">Escribe el radio mayor:</label>
+        <input type="number" id="radioMayor" name="radioMayor" required><br><br>
+        <label for="radioMenor">Escribe el radio menor:</label>
+        <input type="number" id="radioMenor" name="radioMenor" required><br><br>
+        <button type="button" onclick="calcular()">Calcular</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+        function calcular() {
+            var Ra = parseFloat(document.getElementById('radioMayor').value);
+            var r = parseFloat(document.getElementById('radioMenor').value);
+
+            var Resultado = (4 * Math.PI ** 2) * (r * Ra);
+            var Volumen = 2 * Math.PI ** 2 * (Ra * r ** 2);
+            var cm = 2 * Math.PI * r;
+            var cma = 2 * Math.PI * Ra;
+
+            document.getElementById('resultado').innerHTML = `
+                <p>El resultado del área es: ${Resultado}</p>
+                <p>El resultado del volumen es: ${Volumen}</p>
+                <p>El resultado de la circunferencia menor es: ${cm}</p>
+                <p>El resultado de la circunferencia mayor es: ${cma}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

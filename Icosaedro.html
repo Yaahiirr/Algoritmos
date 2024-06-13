@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular área, perímetro y volumen de un icosaedro</title>
+</head>
+<body>
+    <h2>Calcular área, perímetro y volumen de un icosaedro</h2>
+    <form id="icosaedroForm">
+        <label for="ladoTriangulo">Escribe la longitud de un lado del triángulo:</label>
+        <input type="number" id="ladoTriangulo" name="ladoTriangulo" required><br><br>
+        <label for="arista">Escribe una de las aristas:</label>
+        <input type="number" id="arista" name="arista" required><br><br>
+        <button type="button" onclick="calcular()">Calcular</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+        function calcular() {
+            var s = parseFloat(document.getElementById('ladoTriangulo').value);
+            var a = parseFloat(document.getElementById('arista').value);
+
+            var resultado = (Math.sqrt(3)/4) * Math.pow(s, 2);
+            var area = 20 * resultado;
+            var perimetro = 30 * a;
+            var volumen = (5 * (3 + Math.sqrt(5)) / 12) * Math.pow(a, 3);
+
+            document.getElementById('resultado').innerHTML = `
+                <p>El resultado del área es: ${area}</p>
+                <p>El resultado del perímetro es: ${perimetro}</p>
+                <p>El resultado del volumen es: ${volumen}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

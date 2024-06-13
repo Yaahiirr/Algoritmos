@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular área, perímetro y volumen de una pirámide triangular</title>
+</head>
+<body>
+    <h2>Calcular área, perímetro y volumen de una pirámide triangular</h2>
+    <form id="piramideTriangularForm">
+        <label for="semiperimetro">Escribe el semiperímetro:</label>
+        <input type="number" id="semiperimetro" name="semiperimetro" required><br><br>
+        <label for="altura">Escribe la altura:</label>
+        <input type="number" id="altura" name="altura" required><br><br>
+        <label for="base">Escribe la base:</label>
+        <input type="number" id="base" name="base" required><br><br>
+        <button type="button" onclick="calcular()">Calcular</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+        function calcular() {
+            var s = parseFloat(document.getElementById('semiperimetro').value);
+            var h = parseFloat(document.getElementById('altura').value);
+            var b = parseFloat(document.getElementById('base').value);
+
+            var a = s - b;
+            var AResultado = Math.sqrt(s * (s - a) * (s - b) * (s - c));
+            var BResultado = (1/2) * b * h;
+            var Area = AResultado + BResultado;
+            var Perimetro = 3 * s;
+            var Areabase = (Math.sqrt(3) / 4) * Math.pow(s, 2);
+            var Volumen = (1/3) * Areabase * h;
+
+            document.getElementById('resultado').innerHTML = `
+                <p>El resultado del área es: ${Area}</p>
+                <p>El resultado del perímetro es: ${Perimetro}</p>
+                <p>El resultado del volumen es: ${Volumen}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

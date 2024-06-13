@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular área y perímetro de un pentágono</title>
+</head>
+<body>
+    <h2>Calcular área y perímetro de un pentágono</h2>
+    <form id="pentagonoForm">
+        <label for="apotema">Ingresa el apotema:</label>
+        <input type="number" id="apotema" name="apotema" required><br><br>
+        <label for="perimetro">Ingresa el perímetro:</label>
+        <input type="number" id="perimetro" name="perimetro" required><br><br>
+        <label for="lado">Ingresa la longitud de cada lado:</label>
+        <input type="number" id="lado" name="lado" required><br><br>
+        <button type="button" onclick="calcular()">Calcular</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+        function calcular() {
+            var a = parseFloat(document.getElementById('apotema').value);
+            var P = parseFloat(document.getElementById('perimetro').value);
+            var s = parseFloat(document.getElementById('lado').value);
+
+            var resultadoArea = (1/2) * P * a;
+            var resultadoPerimetro = 5 * s;
+
+            document.getElementById('resultado').innerHTML = `
+                <p>El resultado del área es: ${resultadoArea}</p>
+                <p>El resultado del perímetro es: ${resultadoPerimetro}</p>
+            `;
+        }
+    </script>
+</body>
+</html>
